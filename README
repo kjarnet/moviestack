@@ -1,0 +1,12 @@
+== INSTALLATION ==
+Install files to a separate directory in your python path, or under your django-project folder. Add the directory-name to INSTALLED_APPS.
+
+
+== TODO ==
+ - Make model
+ - Make a site for the app to live in
+
+
+
+
+
