@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="add_delete" method="post">
+
+<div id="new_form">
+<h2>Add Movie</h2>
+Title: <input type="text" name="movie_title_new" value="" />
+Link: <input type="text" name="link_url_new" value="" />
+Notes: <textarea name="movie_notes_new" rows="1" cols="30"></textarea>
+<input type="submit" name="movie_add_new" value="Update" />
+<input type="cancel" name="movie_cancel_new" value="Cancel" />
+</div>
+
+<h2>Movies</h2>
+<div id="delete_form">
+	With selected: 
+	<select>
+	<option>delete</option>
+	</select>
+	<input type="submit" name="movie_delete" value="Make it so" />
+</div>
+
+
+{% if movie_list %}
+    <ul>
+    {% for movie in movie_list %}
+        <li><a href="movie/{{ movie.id }}/">{{ movie.title }}</a>
+	    <input type="button" name="movie_edit[{{ movie.id }}]" value="Edit" />
+       	<input type="checkbox" name="movie_select[{{ movie.id }}]" />
+		<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
+		<ul>
+			<div name="movie_edit_form[{{ movie.id }}]">
+        	<li>Title: <input type="text" name="movie_title[{{ movie.id }}]" value="{{ movie.title }}" /></li>
+			<ul>
+			{% for link in movie.link_set.all %}
+    	    <li>{{ link.description }}: <input type="text" name="link_url[{{ link.id }}]" value="{{ link.url }}" /></li>
+			{% endfor %}
+			</ul>
+       		<li>Notes: <textarea name="movie_notes[{{ movie.id }}]" rows="1" cols="30">{{ movie.notes }}</textarea></li>
+		    <li><input type="button" name="movie_update[{{ movie.id }}]" value="Update" />
+			    <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" /></li>
+			</div>
+		</ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No movies are available.</p>
+{% endif %}
+
+
+</form>
+
+{% endblock content %}
+
+

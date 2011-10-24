@@ -1,0 +1,40 @@
+/*
+korelabs.net by Oeystein Kjaernet gelefisk@gmail.com
+Copyright (c) 2011 Oeystein Kjarnet. Please don't steal.
+*/
+
+
+/* SETUP */
+
+body {
+    margin:0;
+    padding:0;
+    background:#092e20;
+    color:white;
+}
+body, th, td {
+    font:12px/1.4em Verdana,sans-serif;
+}
+#container {
+    position:relative;
+    min-width:55em;
+    max-width:100em;
+}
+#homepage #container {
+    max-width:100em;
+}
+
+/* LINKS */
+
+a {text-decoration: none;
+  }
+a img {border: none;
+      }
+a:link, a:visited {
+    color:#ffc757;
+}
+
+
+
+
+
