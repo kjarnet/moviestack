@@ -2,15 +2,14 @@
 
 {% block content %}
 
-<form action="add_delete" method="post">
-
+<form id="form_main" action="add_delete" method="post">
+{% csrf_token %}
 <div id="new_form">
 <h2>Add Movie</h2>
-Title: <input type="text" name="movie_title_new" value="" />
-Link: <input type="text" name="link_url_new" value="" />
-Notes: <textarea name="movie_notes_new" rows="1" cols="30"></textarea>
+Movie titles, one on each line:<br />
+<textarea name="movie_title_new" value="" /></textarea>
 <input type="submit" name="movie_add_new" value="Update" />
-<input type="cancel" name="movie_cancel_new" value="Cancel" />
+<input type="reset" name="movie_cancel_new" value="Cancel" />
 </div>
 
 <h2>Movies</h2>
@@ -26,9 +25,10 @@ Notes: <textarea name="movie_notes_new" rows="1" cols="30"></textarea>
 {% if movie_list %}
     <ul>
     {% for movie in movie_list %}
-        <li><a href="movie/{{ movie.id }}/">{{ movie.title }}</a>
+       	<li id="movie_list">
+		<input type="checkbox" name="movie_select[{{ movie.id }}]" />
+        <a href="movie/{{ movie.id }}/">{{ movie.title }}</a>
 	    <input type="button" name="movie_edit[{{ movie.id }}]" value="Edit" />
-       	<input type="checkbox" name="movie_select[{{ movie.id }}]" />
 		<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
 		<ul>
 			<div name="movie_edit_form[{{ movie.id }}]">
@@ -40,7 +40,9 @@ Notes: <textarea name="movie_notes_new" rows="1" cols="30"></textarea>
 			</ul>
        		<li>Notes: <textarea name="movie_notes[{{ movie.id }}]" rows="1" cols="30">{{ movie.notes }}</textarea></li>
 		    <li><input type="button" name="movie_update[{{ movie.id }}]" value="Update" />
-			    <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" /></li>
+			    <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" />
+				<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" /> <!-- TODO: Find a better way to find the movie id than to dupe this all over -->
+			</li>
 			</div>
 		</ul>
         </li>

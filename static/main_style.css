@@ -1,6 +1,5 @@
 /*
-korelabs.net by Oeystein Kjaernet gelefisk@gmail.com
-Copyright (c) 2011 Oeystein Kjarnet. Please don't steal.
+MovieStack main style
 */
 
 
@@ -9,7 +8,7 @@ Copyright (c) 2011 Oeystein Kjarnet. Please don't steal.
 body {
     margin:0;
     padding:0;
-    background:#092e20;
+    background:#000000;
     color:white;
 }
 body, th, td {
@@ -18,9 +17,6 @@ body, th, td {
 #container {
     position:relative;
     min-width:55em;
-    max-width:100em;
-}
-#homepage #container {
     max-width:100em;
 }
 

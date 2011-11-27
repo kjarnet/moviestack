@@ -12,7 +12,6 @@ class Movie(models.Model):
 class Search(models.Model):
 	name = models.CharField(max_length=30)
 	querystring = models.CharField(max_length=60)
-	movie = models.ForeignKey(Movie)
 	
 	def __unicode__(self):
 		return self.name

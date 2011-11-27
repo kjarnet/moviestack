@@ -1,0 +1,12 @@
+[
+{
+id: {{ movie.id }},
+title: {{ movie.title }},
+notes: {{ movie.notes }},
+pub_date: {{ movie.pub_date }}
+}
+]
+
+
+
+
