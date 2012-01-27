@@ -44,13 +44,15 @@ $.fn.editToggle = function(edit_movie){
 	
 };
 
-// TODO: Find a more reliable way to find the movie-id
-/*$.fn.findMovieId = function(buttonName){
-	return $('input[name="' + buttonName + '"] ~ input[name^="movie_id"]').val();
-}
-*/
 $.fn.findMovieId = function(){
 	return this.closest('li#movie_list').children('input[name^="movie_id"]').first().val();
+}
+
+function constructJsonMovie(movie_id){
+	var title = $('input[name="movie_title\\['+movie_id+'\\]"]');
+	var notes = $('input[name="movie_notes\\['+movie_id+'\\]"]');
+	return '[{"pk":"'+movie_id+'", "model":"moviestack.movie", "fields":{"title":"'+title+
+	'", "notes":"'+notes+'","pub_date":"2011-01-01 12:00"}}]';
 }
 
 $(document).ready(function(){
@@ -69,16 +71,17 @@ $(document).ready(function(){
 	$('input[name^="movie_update"]').each(function(){
 		//var movie_id = $.fn.findMovieId(this.name);
 		var movie_id = $(this).findMovieId();
-		var json_movie = "{title:\"test\"}";
+		//var json_movie = {title:"test"};
 		var get_url = "movie/"+movie_id+"/update/";
 		$(this).click(function(event){
 			alert("Sending json to "+get_url);
-			$.getJSON(get_url,json_movie,function(data,textStatus,jqXHR){
-				alert("Success:"+data.title);
-			})
+			$.post(get_url,{ data: constructJsonMovie(movie_id) },
+				function(data,textStatus,jqXHR){
+					alert("Success:"+data.title_fetched+","+data.data_param);
+			},'json')
 			.success(function() { alert("second success"); })
 			.error(function(data,textStatus,jqXHR) { alert("error:"+textStatus); })
-			.complete(function() { alert("complete"); });;
+			.complete(function() { alert("complete"); });
 			//event.preventDefault();
 		});
 	});

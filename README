@@ -1,12 +1,14 @@
 == INSTALLATION ==
-Install files to a separate directory in your python path, or under your django-project folder. Add the directory-name to INSTALLED_APPS.
+ 1) Install files to a separate directory in your python path, or under your django-project folder. 
+ 2) Add the directory-name to INSTALLED_APPS in your django-project's settings.py.
+ 3) Add the following line to your project's urls.py: "url(r'^', include('moviestack.urls')),"
 
 
 == TODO ==
- - Make model
- - Make a site for the app to live in
+ - 
 
-
-
+== LICENCE ==
+ - CSS is from http://www.freecsstemplates.org and is Creative Commons, see cclicence.txt
+ - the rest is GPLv2
 
 

@@ -26,10 +26,10 @@ Movie titles, one on each line:<br />
     <ul>
     {% for movie in movie_list %}
        	<li id="movie_list">
+		<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
 		<input type="checkbox" name="movie_select[{{ movie.id }}]" />
         <a href="movie/{{ movie.id }}/">{{ movie.title }}</a>
 	    <input type="button" name="movie_edit[{{ movie.id }}]" value="Edit" />
-		<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
 		<ul>
 			<div name="movie_edit_form[{{ movie.id }}]">
         	<li>Title: <input type="text" name="movie_title[{{ movie.id }}]" value="{{ movie.title }}" /></li>
@@ -41,7 +41,6 @@ Movie titles, one on each line:<br />
        		<li>Notes: <textarea name="movie_notes[{{ movie.id }}]" rows="1" cols="30">{{ movie.notes }}</textarea></li>
 		    <li><input type="button" name="movie_update[{{ movie.id }}]" value="Update" />
 			    <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" />
-				<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" /> <!-- TODO: Find a better way to find the movie id than to dupe this all over -->
 			</li>
 			</div>
 		</ul>
