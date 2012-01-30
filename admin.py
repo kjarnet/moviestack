@@ -1,7 +1,7 @@
 from django.contrib import admin
-from djangoapps.moviestack.models import Movie
-from djangoapps.moviestack.models import Link
-from djangoapps.moviestack.models import Search
+from models import Movie
+from models import Link
+from models import Search
 
 "Customization of the admin-interface for class Movie"
 class MovieAdmin(admin.ModelAdmin):

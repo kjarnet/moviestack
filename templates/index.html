@@ -14,36 +14,36 @@ Movie titles, one on each line:<br />
 
 <h2>Movies</h2>
 <div id="delete_form">
-	With selected: 
-	<select>
-	<option>delete</option>
-	</select>
-	<input type="submit" name="movie_delete" value="Make it so" />
+        With selected: 
+        <select>
+        <option>delete</option>
+        </select>
+        <input type="submit" name="movie_delete" value="Make it so" />
 </div>
 
 
 {% if movie_list %}
     <ul>
     {% for movie in movie_list %}
-       	<li id="movie_list">
-		<input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
-		<input type="checkbox" name="movie_select[{{ movie.id }}]" />
+        <li id="movie_list">
+                <input type="hidden" name="movie_id[{{ movie.id }}]" value="{{ movie.id }}" />
+                <input type="checkbox" name="movie_select[{{ movie.id }}]" />
         <a href="movie/{{ movie.id }}/">{{ movie.title }}</a>
-	    <input type="button" name="movie_edit[{{ movie.id }}]" value="Edit" />
-		<ul>
-			<div name="movie_edit_form[{{ movie.id }}]">
-        	<li>Title: <input type="text" name="movie_title[{{ movie.id }}]" value="{{ movie.title }}" /></li>
-			<ul>
-			{% for link in movie.link_set.all %}
-    	    <li>{{ link.description }}: <input type="text" name="link_url[{{ link.id }}]" value="{{ link.url }}" /></li>
-			{% endfor %}
-			</ul>
-       		<li>Notes: <textarea name="movie_notes[{{ movie.id }}]" rows="1" cols="30">{{ movie.notes }}</textarea></li>
-		    <li><input type="button" name="movie_update[{{ movie.id }}]" value="Update" />
-			    <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" />
-			</li>
-			</div>
-		</ul>
+            <input type="button" name="movie_edit[{{ movie.id }}]" value="Edit" />
+                <ul>
+                        <div name="movie_edit_form[{{ movie.id }}]">
+                <li>Title: <input type="text" name="movie_title[{{ movie.id }}]" value="{{ movie.title }}" /></li>
+                        <ul>
+                        {% for link in movie.link_set.all %}
+            <li>{{ link.description }}: <input type="text" name="link_url[{{ link.id }}]" value="{{ link.url }}" /></li>
+                        {% endfor %}
+                        </ul>
+                <li>Notes: <textarea name="movie_notes[{{ movie.id }}]" rows="1" cols="30">{{ movie.notes }}</textarea></li>
+                    <li><input type="button" name="movie_update[{{ movie.id }}]" value="Update" />
+                            <input type="button" name="movie_cancel[{{ movie.id }}]" value="Cancel" />
+                        </li>
+                        </div>
+                </ul>
         </li>
     {% endfor %}
     </ul>
