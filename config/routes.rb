@@ -1,4 +1,12 @@
 Moviestack::Application.routes.draw do
+  resources :searches
+
+  resources :links
+
+  namespace :video do resources :series end
+
+  namespace :video do resources :movies end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
