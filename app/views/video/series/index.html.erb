@@ -1,0 +1,23 @@
+<h1>Listing video_series</h1>
+
+<table>
+  <tr>
+    <th>Current season</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @video_series.each do |video_series| %>
+  <tr>
+    <td><%= video_series.current_season %></td>
+    <td><%= link_to 'Show', video_series %></td>
+    <td><%= link_to 'Edit', edit_video_series_path(video_series) %></td>
+    <td><%= link_to 'Destroy', video_series, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Series', new_video_series_path %>

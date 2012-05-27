@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Current season:</b>
+  <%= @video_series.current_season %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_series_path(@video_series) %> |
+<%= link_to 'Back', video_series_index_path %>

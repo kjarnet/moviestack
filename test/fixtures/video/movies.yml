@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  watched: 
+  external_rating: 
+  my_rating: 
+  type: 
+
+two:
+  title: MyString
+  description: MyText
+  watched: 
+  external_rating: 
+  my_rating: 
+  type: 

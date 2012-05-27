@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @video_movie.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @video_movie.description %>
+</p>
+
+<p>
+  <b>Watched:</b>
+  <%= @video_movie.watched %>
+</p>
+
+<p>
+  <b>External rating:</b>
+  <%= @video_movie.external_rating %>
+</p>
+
+<p>
+  <b>My rating:</b>
+  <%= @video_movie.my_rating %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @video_movie.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_movie_path(@video_movie) %> |
+<%= link_to 'Back', video_movies_path %>

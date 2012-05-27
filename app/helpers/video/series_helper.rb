@@ -1,0 +1,2 @@
+module Video::SeriesHelper
+end

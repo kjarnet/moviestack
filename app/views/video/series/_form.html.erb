@@ -1,0 +1,21 @@
+<%= form_for(@video_series) do |f| %>
+  <% if @video_series.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video_series.errors.count, "error") %> prohibited this video_series from being saved:</h2>
+
+      <ul>
+      <% @video_series.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :current_season %><br />
+    <%= f.text_field :current_season %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
