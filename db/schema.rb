@@ -29,21 +29,16 @@ ActiveRecord::Schema.define(:version => 20120527184246) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "video_movies", :force => true do |t|
+  create_table "videos", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "watched"
     t.integer  "external_rating"
     t.integer  "my_rating"
+    t.integer  "current_season"
     t.string   "type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-  end
-
-  create_table "video_series", :force => true do |t|
-    t.integer  "current_season"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
   end
 
 end
